@@ -33,7 +33,7 @@ cat data.txt | python save_to_json.py
 ##### Compare two datasets and filter patterns with no counts.
 
 ```bash 
-python count_transitivity.py -d cna_count, udn -f yes
+python count_transitivity.py -d cna_count udn -f yes
 
 ```
 -d: Enter the datasets (cna_cont, cna_head, udn) you want to compare, default= cna_cont, cna_head, udn
