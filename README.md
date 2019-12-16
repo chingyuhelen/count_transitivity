@@ -30,11 +30,15 @@ cat data.txt | python save_to_json.py
 - transitive usage: V N (e.g., 我很+關心+這件[事]。)
 - intransitive usage: P N V (e.g., 我[對]這件[事]很+關心+。)
 
+##### Compare two datasets and filter patterns with no counts.
 
 ```bash 
-python count_transitivity.py
+python count_transitivity.py -d cna_count, udn -f yes
 
 ```
+-d: Enter the datasets (cna_cont, cna_head, udn) you want to compare, default= cna_cont, cna_head, udn
+-f: filter patterns with no counts (yes/no), default=no
+
  
  
  
