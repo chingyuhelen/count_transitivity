@@ -4,9 +4,8 @@ v_prep = json.load(open('v_prep.json'))
 
 def is_verb(tokens):
     # v is a target verb, ckip_pos 'V'
-    verbs = set([(token.head_loc, token.head) for token in tokens
-                if token.head in v_prep
-                and token.ckip_pos.startswith('V')])
+    unchecks = set([(token.head_loc, token.head) for token in tokens if token.head in v_prep])
+    verbs = [verb for verb in unchecks if tokens[verb[0]-1].ckip_pos.startswith('V')]    
     return verbs
 
 

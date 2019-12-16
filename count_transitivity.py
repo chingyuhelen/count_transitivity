@@ -69,5 +69,5 @@ def parse_command():
 
 if __name__ == '__main__':
     names, filtered = parse_command()
-    data = [json.load(open(f'../../data/{name}.json')) for name in names]
+    data = [json.load(open(f'../data/{name}.json')) for name in names]
     main(data, names, filtered)

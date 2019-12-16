@@ -25,16 +25,16 @@ def main(iterable, ckip_sents):
 
     for dataset, verb, prep, patt, noun, *lines in iterable:
         for sent in formatting(verb, prep, noun, lines, ckip_sents):
-            if dataset == 'cna_content':
+            if dataset == 'cna_content' and sent not in cna_cont[patt][verb][prep]:
                 cna_cont[patt][verb][prep].append(sent)
-            elif dataset == 'cna_headline':
+            elif dataset == 'cna_headline' and sent not in cna_head[patt][verb][prep]:
                 cna_head[patt][verb][prep].append(sent)
-            elif dataset == 'udn':
+            elif dataset == 'udn' and sent not in udn[patt][verb][prep]:
                 udn[patt][verb][prep].append(sent)
 
-    json.dump(cna_cont, open('../data/test/cna_cont.json', 'w'))
-    json.dump(cna_head, open('../data/test/cna_head.json', 'w'))
-    json.dump(udn, open('../data/test/udn.json', 'w'))
+    json.dump(cna_cont, open('../data/cna_cont.json', 'w'))
+    json.dump(cna_head, open('../data/cna_head.json', 'w'))
+    json.dump(udn, open('../data/udn.json', 'w'))
 
 
 if __name__ == "__main__":

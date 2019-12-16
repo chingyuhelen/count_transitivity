@@ -14,20 +14,13 @@ def get_noun(iterable):
 
 def main(iterable):
     n_pnv, n_vn = get_noun(iterable)
-    # print(iterable)
     for tokens in iterable:
         _, _, _, _, noun, _, _, _, pattern = tokens
-        # print(noun, pattern)
         if pattern == 'pnv' and noun in n_vn:
-            # print(*tokens, sep='\t')
-            # print(tokens)
             yield tokens
         elif pattern == 'vn' and noun in n_pnv:
-            # print(*tokens, sep='\t')
-            # print(tokens)
             yield tokens
             
-
 
 if __name__ == '__main__':
     iterable = list(map(lambda x: x.strip().split('\t'), fileinput.input()))

@@ -45,7 +45,7 @@ def find_patterns(tokens):
     punts = [token.loc for token in tokens if token.word in ('。', '，', '?')]
     verbs = is_verb(tokens)
     # verbs: [(loc, verb), ...]
-
+    
     if verbs:
         preps = list(is_prep(verbs, tokens)) # preps: Tokens
         pnv = list(is_pnv(verbs, preps, punts, tokens))

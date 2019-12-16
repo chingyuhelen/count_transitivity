@@ -3,7 +3,7 @@ from check_conditions import find_patterns
 from collections import namedtuple
 from tqdm import tqdm
 import string
-
+import re
 
 Token = namedtuple('Token', ['loc', 'word', 'head_loc', 'head', 'dep', 'ckip_pos'])
 
@@ -51,10 +51,10 @@ def main(filename):
 
 
 if __name__ == '__main__':
-    paths = ['/home/nlplab/jocelyn/cna_processed/content/*',
-             '/home/nlplab/jocelyn/cna_processed/headline/*',
+    paths = ['/home/nlplab/jocelyn/cna_processed/headline/*',          
+             '/home/nlplab/jocelyn/cna_processed/content/*',
              '/home/nlplab/jocelyn/ucd_processed/*']
-    tags = ['cna_content', 'cna_headline', 'udn']
+    tags = ['cna_headline', 'cna_content', 'udn']
     filenames = [(filename, tag) for path, tag in zip(paths, tags) for filename in glob(path)]
     main(filenames)
 
