@@ -29,6 +29,11 @@ def is_verb(tokens):
 
 def is_prep(verbs, tokens, deps=('case', 'acl')):
     # the head of p is one of the verb in v_prep, with certain deps
+    '''TO DO:
+    We should include the posibility that prep does not directly depend on the verb,
+    but dependent on a noun directly depending the verb.
+    '''
+    
     for token in tokens:
         if any(map(lambda x: token.word in v_prep[x[1]], verbs)) and token.dep in deps:
             yield token
