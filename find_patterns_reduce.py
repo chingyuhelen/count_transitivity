@@ -18,11 +18,7 @@ def main(data):
                 results.extend([tag for tag in tags])
                 results.extend(sents)
                 yield results
-
-                '''print(*tags, sep='\t', end='\t')
-                for line in sents:
-                    print(*line, end='\t')
-                print()'''
+                
             tags = keys
             sents = [tokens[1::2] for tokens in text]
 
