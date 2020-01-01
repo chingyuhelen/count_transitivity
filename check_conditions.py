@@ -32,6 +32,10 @@ def is_good_pair(vloc, prep, noun, punts):
 
 def is_pnv(verbs, preps, punts, tokens):
     nouns = list(is_noun(verbs, tokens))  # nouns: Tokens
+    '''
+    bugs:
+    the product of verbs, preps, nouns may generate incorrect verb-prep pairs (e.g., 發問 + 在, 吹牛 + 與)
+    '''
     for verb, prep, noun in itertools.product(verbs, preps, nouns):
         vloc, v = verb
         if is_good_pair(vloc, prep, noun, punts):
